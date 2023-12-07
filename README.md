@@ -1,12 +1,10 @@
-# Trabalho-Eng-Software
+# Componentes do grupo
+- Fabrício Augusto
+- Ivia Marques
+- João Victor Peluci
+- Luís Felipe Lopes
 
-Componentes do grupo:<br />
-Fabrício Augusto<br />
-Ivia Marques<br />
-João Victor Peluci<br />
-Luís Felipe Lopes
-
-Para rodar o projeto:
+# Para rodar o projeto
 - Clonar o repositorio
 - No terminal:
   - php artisan key:generate
