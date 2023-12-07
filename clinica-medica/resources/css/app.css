@@ -17,62 +17,10 @@ body {
     left: 0;
     margin: 0;
     font-family: Barlow;
-    margin-bottom: 8dvh;
 }
 
-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    background-color: var(--dark-green);
-    padding: 15px;
-    height: 75px;
-    
-}
 
-nav img {
-    width: 20px;
-    margin-right: 10px;
-}
-
-nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    border-radius: 8px;
-    margin: 10px;
-    width: 30dvw;
-    background-color: var(--light-green);
-
-}
-
-nav a {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 10px;
-    color: var(--white);
-    text-decoration: none;
-    font-size: 18px;
-}
-
-header button {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    width: 100px;
-    margin: 10px;
-    border-radius: 8px;
-    border-style: none;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-    color: var(--dark-green);
-}
-
-.banner
-{   
+.banner {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,7 +28,8 @@ header button {
     height: 125px;
     font-size: 20pt;
 }
-section{
+
+section {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -92,43 +41,50 @@ section{
     font-size: 20pt;
     text-align: center;
 }
-section img{
+
+section img {
     width: 30dvw;
 }
 
 section p {
     max-width: 40dvw;
 }
-section h1{
+
+section h1 {
     font-weight: 1200;
 }
-section.two-columns{
+
+section.two-columns {
     flex-direction: row;
     justify-content: space-around;
 
 }
-section.two-columns img{
+
+section.two-columns img {
     max-width: 250px;
     margin: 50px;
 }
-section.two-columns p{
+
+section.two-columns p {
     max-width: 30dvw;
     text-align: center;
 }
-section img.logo-big{
-    width:200px;
+
+section img.logo-big {
+    width: 200px;
 }
 
-footer{
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        background-color: var(--dark-green);
-        color: white;
-        text-align: center;
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--dark-green);
+    color: white;
+    text-align: center;
 }
-.cadastro{
+
+.cadastro {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -138,10 +94,11 @@ footer{
     padding: 20px;
     border-radius: 8pt;
 }
-.input{
+
+.input {
     display: flex;
     flex-direction: row;
-    height:32px;
+    height: 32px;
     width: 100%;
     margin: 10px;
     justify-content: space-between;
@@ -151,7 +108,8 @@ footer{
 
 
 }
-.input p{
+
+.input p {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -164,7 +122,8 @@ footer{
     border-radius: 4pt;
 
 }
-.input input{
+
+.input input {
     width: 70%;
     height: 30px;
     background-color: #fff;
@@ -172,6 +131,7 @@ footer{
     border-radius: 4pt;
 
 }
+
 .cadastro button {
     width: 100px;
     height: 40px;
@@ -183,7 +143,7 @@ footer{
 }
 
 
-.agendamento{
+.agendamento {
     display: flex;
     flex-direction: column;
     justify-content: right;
@@ -191,7 +151,8 @@ footer{
     height: 100px;
     margin: 5px;
 }
-.agendamento p{
+
+.agendamento p {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -204,7 +165,8 @@ footer{
     border-radius: 4pt;
     border-style: none;
 }
-.agendamento select{
+
+.agendamento select {
     height: 50%;
     width: 25vw;
     border-radius: 4pt;

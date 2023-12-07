@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AgendamentosController;
+use App\Http\Controllers\NovoEnderecoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', function () {
     if (auth()->check()) {
-        return redirect()->route('dashboard');
+        return redirect()->route('home');
     }
     return view('auth.login');
 });
@@ -31,4 +33,23 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/home', function () {
+        return view('home');
+    })->name('home');
+
+    Route::get('/galeria', function () {
+        return view('galeria');
+    })->name('galeria');
+
+    Route::get('/agendamentos', function () {
+        return view('agendamentos');
+    })->name('agendamentos');
+
+    Route::prefix('novoendereco')->group(function () {
+        Route::get('/', [NovoEnderecoController::class, 'index'])->name('novoendereco.');
+    });
 });
+
+
+

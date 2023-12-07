@@ -14,11 +14,10 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['Barlow', ...defaultTheme.fontFamily.sans],
             },
             backgroundImage: theme => ({
-                'title-image': "url('images/img2-homepage.png')",
-            }),
+                'footer-texture': "url('public/images/img2-homepage.png')"}),
         },
     },
 
