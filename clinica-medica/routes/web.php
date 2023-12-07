@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AgendamentosController;
+use App\Http\Controllers\PermissionsController;
 use App\Http\Controllers\NovoEnderecoController;
 use Illuminate\Support\Facades\Route;
 
@@ -49,9 +50,14 @@ Route::middleware([
     Route::prefix('novoendereco')->group(function () {
         Route::get('/', [NovoEnderecoController::class, 'index'])->name('novoendereco');
     });
+
     Route::get('/cadastro-funcionario', function () {
         return view('cadastro-funcionario');
     })->name('cadastro-funcionario');
+
+    Route::prefix('permissoes')->group(function () {
+        Route::get('/', [PermissionsController::class, 'index'])->name('permissoes');
+    });
 });
 
 
