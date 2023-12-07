@@ -63,11 +63,7 @@ Route::middleware([
     Route::prefix('cadastro-prontuario')->group(function () {
         Route::get('/', [CadastrarProntuarioController::class, 'index'])->name('cadastro-prontuario');
     });
-    
 
-    Route::get('/cadastro-funcionario', function () {
-        return view('cadastro-funcionario');
-    })->name('cadastro-funcionario');
 
     Route::prefix('permissoes')->group(function () {
         Route::get('/', [PermissionsController::class, 'index'])->name('permissoes');
