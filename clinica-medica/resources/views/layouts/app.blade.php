@@ -38,6 +38,11 @@
         <main>
             {{ $slot }}
         </main>
+        
+
+        <footer>
+            Desenvolvido por Fabrício Augusto, Ivia Costa, João Victor Peluci e Luís Felipe Lopes.
+        </footer>
     </div>
 
     @stack('modals')

@@ -23,10 +23,16 @@
                         {{ __('Agendamentos') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('cadastro-funcionario') }}" :active="request()->routeIs('cadastro-funcionario')">
-                        {{ __('Cadastrar Funcionarios') }}
+                        {{ __('+ Funcionarios') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('cadastro-paciente') }}" :active="request()->routeIs('cadastro-paciente')">
+                        {{ __('+ Pacientes') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('cadastro-prontuario') }}" :active="request()->routeIs('cadastro-prontuario')">
+                        {{ __('+ Prontuario') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('novoendereco') }}" :active="request()->routeIs('novoendereco')">
-                        {{ __('Novo Endereco') }}
+                        {{ __('Novo Endereço') }}
                     </x-nav-link>
                 </div>
             </div>

@@ -8,8 +8,7 @@
 
             <div>
                 <x-label for="nome" value="{{ __('Nome') }}" />
-                <x-input id="nome" class="block mt-1 w-full" type="text" name="nome" :value="old('nome')" required
-                    autofocus autocomplete="username" />
+                <x-input id="nome" class="block mt-1 w-full" type="text" name="nome" required/>
             </div>
 
             <div class="mt-4">
@@ -18,7 +17,7 @@
             </div>
             <div class="mt-4">
                 <x-label for="telefone" value="{{ __('Telefone') }}" />
-                <x-input id="telefone" class="block mt-1 w-full" type="text" name="telefone" required />
+                <x-input id="telefone" class="block mt-1 w-full" type="tel" name="telefone" required placeholder="(99) 99999-9999"/>
             </div>
             <div class="mt-4">
                 <x-label for="CEP" value="{{ __('CEP') }}" />
@@ -38,11 +37,11 @@
             </div>
             <div class="mt-4">
                 <x-label for="Estado" value="{{ __('Estado') }}" />
-                <x-input id="Estado" class="block mt-1 w-full" type="text" name="Estado" required />
+                <x-input id="Estado" class="block mt-1 w-full" type="text" name="Estado" required maxlength="2" />
             </div>
             <div class="mt-4">
                 <x-label for="data_inicio" value="{{ __('Data de Início') }}" />
-                <x-input id="data_inicio" class="block mt-1 w-full" type="text" name="data_inicio" required />
+                <x-input id="data_inicio" class="block mt-1 w-full" type="date" name="data_inicio" required />
             </div>
             <div class="mt-4">
                 <x-label for="Salario" value="{{ __('Salário') }}" />
