@@ -22,6 +22,12 @@
                     <x-nav-link href="{{ route('agendamentos') }}" :active="request()->routeIs('agendamentos')">
                         {{ __('Agendamentos') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('cadastro-funcionario') }}" :active="request()->routeIs('cadastro-funcionario')">
+                        {{ __('Cadastrar Funcionarios') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('novoendereco') }}" :active="request()->routeIs('novoendereco')">
+                        {{ __('Novo Endereco') }}
+                    </x-nav-link>
                 </div>
             </div>
 

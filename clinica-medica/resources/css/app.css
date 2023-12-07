@@ -95,7 +95,7 @@ footer {
     border-radius: 8pt;
 }
 
-.input {
+/* /* .input {
     display: flex;
     flex-direction: row;
     height: 32px;
@@ -107,9 +107,9 @@ footer {
     background-color: var(--white);
 
 
-}
+} */
 
-.input p {
+/* .input p {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -130,7 +130,7 @@ footer {
     border-style: none;
     border-radius: 4pt;
 
-}
+} */
 
 .cadastro button {
     width: 100px;

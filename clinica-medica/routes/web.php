@@ -47,8 +47,11 @@ Route::middleware([
     })->name('agendamentos');
 
     Route::prefix('novoendereco')->group(function () {
-        Route::get('/', [NovoEnderecoController::class, 'index'])->name('novoendereco.');
+        Route::get('/', [NovoEnderecoController::class, 'index'])->name('novoendereco');
     });
+    Route::get('/cadastro-funcionario', function () {
+        return view('cadastro-funcionario');
+    })->name('cadastro-funcionario');
 });
 
 
