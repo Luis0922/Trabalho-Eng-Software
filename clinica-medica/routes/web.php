@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\AgendamentosController;
+use App\Http\Controllers\CadastrarPacienteController;
+use App\Http\Controllers\CadastrarFuncionarioController;
+use App\Http\Controllers\CadastrarProntuarioController;
 use App\Http\Controllers\PermissionsController;
 use App\Http\Controllers\NovoEnderecoController;
 use Illuminate\Support\Facades\Route;
@@ -50,6 +53,17 @@ Route::middleware([
     Route::prefix('novoendereco')->group(function () {
         Route::get('/', [NovoEnderecoController::class, 'index'])->name('novoendereco');
     });
+    Route::prefix('cadastro-funcionario')->group(function () {
+        Route::get('/', [CadastrarFuncionarioController::class, 'index'])->name('cadastro-funcionario');
+    });
+    Route::prefix('cadastro-paciente')->group(function () {
+        Route::get('/', [CadastrarPacienteController::class, 'index'])->name('cadastro-paciente');
+    });
+
+    Route::prefix('cadastro-prontuario')->group(function () {
+        Route::get('/', [CadastrarProntuarioController::class, 'index'])->name('cadastro-prontuario');
+    });
+    
 
     Route::get('/cadastro-funcionario', function () {
         return view('cadastro-funcionario');

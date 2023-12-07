@@ -2,28 +2,33 @@
     <div class="bg-[url('../../public/images/img2-homepage.png')] h-36 flex justify-center">
         <h1 class="text-white font-bold text-3xl flex self-center text-center">Agendamento de Consultas</h1>
     </div>
-    <section>
-        <h1>Preencha os dados abaixo</h1>
-        <div class="cadastro">
+    <x-card class="mb-4">
+        <form method="POST" action="">
+            <div>
+                <x-label for="especialidade" value="{{ __('Especialidade Médica') }}" />
+                <x-select id="especialidade" class="block mt-1 w-full" type="text" name="especialidade" required />
+            </div>
 
-            <div class='agendamento'>
-                <p>Especialidade Médica</p>
-                <select name="" id=""></select>
+            <div class="mt-4">
+                <x-label for="medico" value="{{ __('Médico Especialista') }}" />
+                <x-select id="medico" class="block mt-1 w-full" type="text" name="medico" required />
             </div>
-            <div class='agendamento'>
-                <p>Médico Especialista</p>
-                <select name="" id=""></select>
+            <div class="mt-4">
+                <x-label for="data" value="{{ __('Data da Consulta') }}" />
+                <x-select id="data" class="block mt-1 w-full" type="number" name="data" required />
             </div>
-            <div class='agendamento'>
-                <p>Data da Consulta</p>
-                <select name="" id=""></select>
+            <div class="mt-4">
+                <x-label for="horario" value="{{ __('Horário da Consulta') }}" />
+                <x-select id="horario" class="block mt-1 w-full" type="number" name="horario" required />
             </div>
-            <div class='agendamento'>
-                <p>Horário da Consulta</p>
-                <select name="" id=""></select>
+            <div class="mt-4">
+                <x-button>
+                    {{ __('Agendar') }}
+                </x-button>
             </div>
-            <x-button name="botao-cadastrar">Cadastrar</x-button>
-        </div>
-    </section>
-
 </div>
+</form>
+</x-card>
+</div>
+
+
