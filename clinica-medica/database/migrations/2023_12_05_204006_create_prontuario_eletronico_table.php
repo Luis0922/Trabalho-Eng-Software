@@ -20,7 +20,7 @@ return new class extends Migration
             $table->longText('atestados');
             $table->longText('exames');
             $table->timestamps();
-            $table->timestamp('deleted_at');
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 
