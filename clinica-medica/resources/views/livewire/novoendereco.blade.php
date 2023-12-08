@@ -7,28 +7,28 @@
             @csrf
             <div>
                 <x-label for="cep" value="{{ __('CEP') }}" />
-                <x-input id="cep" class="block mt-1 w-full" type="text" name="cep" required />
+                <x-input id="cep" wire:model="cep" class="block mt-1 w-full" type="text" name="cep" required />
             </div>
 
             <div class="mt-4">
                 <x-label for="logradouro" value="{{ __('Logradouro') }}" />
-                <x-input id="logradouro" class="block mt-1 w-full" type="text" name="logradouro" required />
+                <x-input id="logradouro" wire:model="logradouro" class="block mt-1 w-full" type="text" name="logradouro" required />
             </div>
             <div class="mt-4">
                 <x-label for="bairro" value="{{ __('Bairro') }}" />
-                <x-input id="bairro" class="block mt-1 w-full" type="text" name="bairro" required />
+                <x-input id="bairro" wire:model="bairro" class="block mt-1 w-full" type="text" name="bairro" required />
             </div>
             <div class="mt-4">
                 <x-label for="cidade" value="{{ __('Cidade') }}" />
-                <x-input id="cidade" class="block mt-1 w-full" type="text" name="cidade" required />
+                <x-input id="cidade" wire:model="cidade" class="block mt-1 w-full" type="text" name="cidade" required />
             </div>
             <div class="mt-4">
                 <x-label for="estado" value="{{ __('Estado') }}" />
-                <x-input id="estado" class="block mt-1 w-full" type="text" name="estado" required />
+                <x-input id="estado" wire:model="estado" class="block mt-1 w-full" type="text" name="estado" required />
             </div>
 
             <div class="mt-4">
-                <x-button>
+                <x-button wire:click=cadastrar()>
                     {{ __('Cadastrar') }}
                 </x-button>
             </div>
