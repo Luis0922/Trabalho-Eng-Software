@@ -2,13 +2,13 @@
     <div class="bg-[url('../../public/images/img2-homepage.png')] h-36 flex justify-center">
         <h1 class="text-white font-bold text-3xl flex self-center text-center">Cadastro de Funcionários</h1>
     </div>
+    
     <x-card class="mb-4">
         <form method="POST" action="{{ route('login') }}">
             @csrf
-
             <div>
                 <x-label for="nome" value="{{ __('Nome') }}" />
-                <x-input id="nome" class="block mt-1 w-full" type="text" name="nome" required/>
+                <x-input id="nome" wire:model="nome" class="block mt-1 w-full" type="text" name="nome" required/>
             </div>
 
             <div class="mt-4">
@@ -53,7 +53,7 @@
             </div>
             <div class="mt-4">
 
-            <x-button >
+            <x-button wire:click="incrementPostCount()">
                 {{ __('Cadastrar') }}
             </x-button>
             </div>

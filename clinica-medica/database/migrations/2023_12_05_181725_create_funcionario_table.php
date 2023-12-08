@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('data_contrato');
             $table->decimal('salario', 8, 2);
             $table->timestamps();
+            $table->timestamp('deleted_at');
         });
     }
 

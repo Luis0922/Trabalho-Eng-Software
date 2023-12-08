@@ -20,6 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('medico');
             $table->foreign('medico')->references('codigo')->on('medico');
             $table->timestamps();
+            $table->timestamp('deleted_at');
         });
     }
 

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('codigo');
             $table->foreign('codigo')->references('codigo')->on('funcionario');
             $table->timestamps();
+            $table->timestamp('deleted_at');
         });
     }
 

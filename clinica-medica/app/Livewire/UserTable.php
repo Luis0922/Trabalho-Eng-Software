@@ -54,8 +54,10 @@ final class UserTable extends PowerGridComponent
         return [
             Column::make('Name', 'name')
                 ->sortable()
-                ->searchable(),
-            Column::action('Action')
+                ->searchable()
+                ->headerAttribute('text-center'),
+            Column::action('Editar Permissão')
+                ->headerAttribute('text-center')
         ];
     }
 
@@ -73,8 +75,9 @@ final class UserTable extends PowerGridComponent
     public function actions(\App\Models\User $row): array
     {
         return [
-            Button::make('editar', 'Editar')
-                ->class('bg-indigo cursor-pointer text-white px-3 py-2 m-1 rounded text-sm')
+            Button::make('edit', '    ')
+               ->class('bg-[url("../../public/images/img2-homepage.png")] cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
+               ->route('cadastro-paciente', []),
         ];
     }
 

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('cidade')->nullable();
             $table->string('estado')->nullable();
             $table->timestamps();
+            $table->timestamp('deleted_at');
         });
     }
 

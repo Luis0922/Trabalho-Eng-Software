@@ -19,6 +19,7 @@ return new class extends Migration
             $table->decimal('altura', 8, 2);
             $table->string('tipo_sanguineo', 2);
             $table->timestamps();
+            $table->timestamp('deleted_at');
         });
     }
 
