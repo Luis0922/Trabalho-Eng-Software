@@ -13,47 +13,47 @@
 
             <div class="mt-4">
                 <x-label for="email" value="{{ __('Email') }}" />
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" required />
+                <x-input id="email" wire:model="email" class="block mt-1 w-full" type="email" name="email" required />
             </div>
             <div class="mt-4">
                 <x-label for="telefone" value="{{ __('Telefone') }}" />
-                <x-input id="telefone" class="block mt-1 w-full" type="tel" name="telefone" required placeholder="(99) 99999-9999"/>
+                <x-input id="telefone" wire:model="tel" class="block mt-1 w-full" type="tel" name="telefone" required placeholder="(99) 99999-9999"/>
             </div>
             <div class="mt-4">
                 <x-label for="CEP" value="{{ __('CEP') }}" />
-                <x-input id="CEP" class="block mt-1 w-full" type="text" name="CEP" required />
+                <x-input id="CEP" wire:model="cep" class="block mt-1 w-full" type="text" name="CEP" required />
             </div>
             <div class="mt-4">
                 <x-label for="Logradouro" value="{{ __('Logradouro') }}" />
-                <x-input id="Logradouro" class="block mt-1 w-full" type="text" name="Logradouro" required />
+                <x-input id="Logradouro" wire:model="logradouro" class="block mt-1 w-full" type="text" name="Logradouro" required />
             </div>
             <div class="mt-4">
                 <x-label for="Bairro" value="{{ __('Bairro') }}" />
-                <x-input id="Bairro" class="block mt-1 w-full" type="text" name="Bairro" required />
+                <x-input id="Bairro" wire:model="bairro" class="block mt-1 w-full" type="text" name="Bairro" required />
             </div>
             <div class="mt-4">
                 <x-label for="Cidade" value="{{ __('Cidade') }}" />
-                <x-input id="Cidade" class="block mt-1 w-full" type="text" name="Cidade" required />
+                <x-input id="Cidade" wire:model="cidade" class="block mt-1 w-full" type="text" name="Cidade" required />
             </div>
             <div class="mt-4">
                 <x-label for="Estado" value="{{ __('Estado') }}" />
-                <x-input id="Estado" class="block mt-1 w-full" type="text" name="Estado" required maxlength="2" />
+                <x-input id="Estado" wire:model="estado" class="block mt-1 w-full" type="text" name="Estado" required maxlength="2" />
             </div>
             <div class="mt-4">
                 <x-label for="data_inicio" value="{{ __('Data de Início') }}" />
-                <x-input id="data_inicio" class="block mt-1 w-full" type="date" name="data_inicio" required />
+                <x-input id="data_inicio" wire:model="data_inicio" class="block mt-1 w-full" type="date" name="data_inicio" required />
             </div>
             <div class="mt-4">
                 <x-label for="Salario" value="{{ __('Salário') }}" />
-                <x-input id="Salario" class="block mt-1 w-full" type="text" name="Salario" required />
+                <x-input id="Salario" wire:model="salario" class="block mt-1 w-full" type="text" name="Salario" required />
             </div>
             <div class="mt-4">
                 <x-label for="senha" value="{{ __('Senha') }}" />
-                <x-input id="senha" class="block mt-1 w-full" type="password" name="senha" required />
+                <x-input id="senha" wire:model="senha" class="block mt-1 w-full" type="password" name="senha" required />
             </div>
             <div class="mt-4">
 
-            <x-button wire:click="incrementPostCount()">
+            <x-button wire:click="cadastrar()">
                 {{ __('Cadastrar') }}
             </x-button>
             </div>
