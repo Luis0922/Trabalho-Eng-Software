@@ -8,7 +8,7 @@
 
             <div>
                 <x-label for="nome" value="{{ __('Nome') }}" />
-                <x-input id="nome" class="block mt-1 w-full" type="text" name="nome" required/>
+                <x-input id="nome" wire:model="nome" class="block mt-1 w-full" type="text" name="nome" required/>
             </div>
 
             <div class="mt-4">
