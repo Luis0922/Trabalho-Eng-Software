@@ -16,8 +16,9 @@ export default {
             fontFamily: {
                 sans: ['Barlow', ...defaultTheme.fontFamily.sans],
             },
-            backgroundImage: theme => ({
-                'footer-texture': "url('public/images/img2-homepage.png')"}),
+            colors: {
+                'custom-green': '#038E83',
+            },
         },
     },
 

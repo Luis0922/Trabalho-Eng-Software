@@ -120,6 +120,12 @@
                             <x-dropdown-link href="{{ route('profile.show') }}">
                                 {{ __('Profile') }}
                             </x-dropdown-link>
+                            
+                            @if(Auth::user()->hasPermissionTo('editar_permissoes'))
+                                <x-dropdown-link href="{{ route('permissoes.') }}">
+                                    {{ __('Editar Permissões') }}
+                                </x-dropdown-link>
+                                @endif
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                 <x-dropdown-link href="{{ route('api-tokens.index') }}">

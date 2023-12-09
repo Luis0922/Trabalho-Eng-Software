@@ -16,8 +16,14 @@ class InsertPermissions extends Seeder
     public function run(): void
     {
         Permission::create(['name' => 'cadastro_funcionario']);
+        Permission::create(['name' => 'editar_permissoes']);
         Permission::create(['name' => 'atualizar_funcao']);
+        Permission::create(['name' => 'adicionar_funcao_usuario']);
+        Permission::create(['name' => 'atualizar_funcao_usuario']);
+        Permission::create(['name' => 'adicionar_permissao_usuario']);
+        Permission::create(['name' => 'atualizar_permissao_usuario']);
 
+        Role::create(['name' => 'medico']);
         Role::create(['name' => 'admin']);
         $user = User::find(1);
         $user->assignRole('admin');
