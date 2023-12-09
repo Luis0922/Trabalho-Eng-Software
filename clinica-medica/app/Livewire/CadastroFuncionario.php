@@ -21,8 +21,7 @@ class CadastroFuncionario extends Component
 
         if($tratarErros == 0){
 
-            $idEndereco = $this->cadastraEndereco();
-            $idUsuario = $this->cadastrarUsuario($idEndereco);
+            $idUsuario = $this->cadastrarUsuario();
             $foi = $this->cadastraFuncionario($idUsuario);
 
             if($foi){
@@ -41,39 +40,19 @@ class CadastroFuncionario extends Component
         
     }
     
-    public function cadastraEndereco()
-    {
-        $idEndereco = BaseEnderecos::where('cep', $this->cep)
-                                ->value('id');
-        if($idEndereco == NULL){
-            
-            $dados_endereco = ([
-                'cep' => $this->cep,
-                'logradouro' => $this->logradouro,
-                'bairro' => $this->bairro,
-                'cidade' => $this->cidade,
-                'estado' => $this->estado,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ]);
-    
-            return BaseEnderecos::insertGetId($dados_endereco);
-
-        }
-        
-        return $idEndereco;
-
-    }
-
-    protected function cadastrarUsuario($idEndereco)
+    protected function cadastrarUsuario()
     {
 
         $dados_usuario = ([
             'name' => $this->nome,
             'email' => $this->email,
             'password' => bcrypt($this->senha),
+            'cep' => $this->cep,
+            'logradouro' => $this->logradouro,
+            'bairro' => $this->bairro,
+            'cidade' => $this->cidade,
+            'estado' => $this->estado,
             'telefone' => $this->tel,
-            'codigo_endereco'=> $idEndereco,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -120,7 +99,7 @@ class CadastroFuncionario extends Component
         if($this->nome == NULL || $this->email == NULL || $this->senha == NULL || 
            $this->data_inicio == NULL || $this->salario == NULL || $this->cep == NULL ||
            $this->logradouro == NULL || $this->bairro == NULL || $this->cidade == NULL ||
-           $this->estado == NULL){
+           $this->estado == NULL || $this->tel == NULL){
             return -2;
         }
 

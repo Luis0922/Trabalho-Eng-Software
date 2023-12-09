@@ -13,6 +13,8 @@ class InsertUser extends Seeder
      */
     public function run(): void
     {
-        DB::table('users')->insert(['name' => 'Admin', 'email' => 'admin@cefet.com.br', 'password' => bcrypt('1234')]);
+        DB::table('users')->insert(['name' => 'Admin', 'email' => 'admin@cefet.com.br', 'password' => bcrypt('1234'),
+                                    'logradouro' => 'av amazonas', 'cep' => '12345678', 'bairro' => 'gamaleira',
+                                    'cidade' => 'BH', 'estado' => 'MG']);
     }
 }
