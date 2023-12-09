@@ -22,8 +22,6 @@ final class UserTable extends PowerGridComponent
 
     public function setUp(): array
     {
-        $this->showCheckBox();
-
         return [
             Header::make()->showSearchInput(),
             Footer::make()
@@ -34,7 +32,7 @@ final class UserTable extends PowerGridComponent
 
     public function datasource(): Builder
     {
-        return User::query();
+        return User::query()->withTrashed();
     }
 
     public function relationSearch(): array
@@ -75,9 +73,10 @@ final class UserTable extends PowerGridComponent
     public function actions(\App\Models\User $row): array
     {
         return [
-            Button::make('edit', '    ')
-               ->class('bg-[url("../../public/images/img2-homepage.png")] cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
-               ->route('cadastro-paciente', []),
+            Button::make('edit', 'Editar')
+               ->class('bg-indigo-500 cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
+               ->route('permissoes.editar_permissoes', ['user_id' => $row->id]),
+
         ];
     }
 
