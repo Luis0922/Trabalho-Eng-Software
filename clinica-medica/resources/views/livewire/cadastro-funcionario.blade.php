@@ -21,7 +21,7 @@
             </div>
             <div class="mt-4">
                 <x-label for="CEP" value="{{ __('CEP') }}" />
-                <x-input id="CEP" wire:model="cep" class="block mt-1 w-full" type="text" name="CEP" required />
+                <x-input id="CEP" wire:model="cep" wire:change="completarEndereco" class="block mt-1 w-full" type="text" name="CEP" required />
             </div>
             <div class="mt-4">
                 <x-label for="Logradouro" value="{{ __('Logradouro') }}" />

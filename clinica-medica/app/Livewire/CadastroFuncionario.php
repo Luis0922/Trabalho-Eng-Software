@@ -44,7 +44,6 @@ class CadastroFuncionario extends Component
     public function cadastraEndereco()
     {
         $idEndereco = BaseEnderecos::where('cep', $this->cep)
-                                ->where('logradouro', $this->logradouro)
                                 ->value('id');
         if($idEndereco == NULL){
             
@@ -92,6 +91,28 @@ class CadastroFuncionario extends Component
         ]);
         
         return Funcionario::insert($dadosFuncionario);
+    }
+
+    public function completarEndereco(){
+
+        $endereco = BaseEnderecos::select('id','cidade','bairro','estado','logradouro')
+                                ->where('cep', $this->cep)->get();
+
+        $idEndereco = BaseEnderecos::where('cep', $this->cep)->value('id');
+
+        $map = $endereco->first();
+
+        if($idEndereco){
+            $this->cidade = $map['cidade'];
+            $this->bairro = $map['bairro'];
+            $this->estado = $map['estado'];
+            $this->logradouro = $map['logradouro'];
+        }else{
+            $this->cidade = "";
+            $this->bairro = "";
+            $this->estado = "";
+            $this->logradouro = "";
+        }
     }
 
     public function verifica(){
