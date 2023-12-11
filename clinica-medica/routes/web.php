@@ -19,11 +19,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', function () {
-    if (auth()->check()) {
-        return redirect()->route('home');
-    }
-    return view('auth.login');
+    return redirect()->route('home');
 });
+
+Route::get('/home', function () {
+    return view('home');
+})->name('home');
+
+Route::get('/galeria', function () {
+    return view('galeria');
+})->name('galeria');
 
 Route::middleware([
     'auth:sanctum',
@@ -37,14 +42,6 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-
-    Route::get('/home', function () {
-        return view('home');
-    })->name('home');
-
-    Route::get('/galeria', function () {
-        return view('galeria');
-    })->name('galeria');
 
     Route::get('/agendamentos', function () {
         return view('agendamentos');
