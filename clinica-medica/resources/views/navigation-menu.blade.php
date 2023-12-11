@@ -13,6 +13,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    
                     <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
                         {{ __('Início') }}
                     </x-nav-link>
@@ -23,24 +24,27 @@
                     <x-nav-link href="{{ route('agendamentos') }}" :active="request()->routeIs('agendamentos')">
                         {{ __('Agendamentos') }}
                     </x-nav-link>
-                    @if(Auth::user()->hasPermissionTo('visualizar_tela_secretaria'))  
-                    <x-nav-link href="{{ route('cadastro-funcionario') }}" :active="request()->routeIs('cadastro-funcionario')">
-                        {{ __('+ Funcionarios') }}
-                    </x-nav-link>
-                    @endif
-                    @if(Auth::user()->hasPermissionTo('visualizar_tela_secretaria')||Auth::user()->hasPermissionTo('visualizar_tela_medico'))  
-                    <x-nav-link href="{{ route('cadastro-paciente') }}" :active="request()->routeIs('cadastro-paciente')">
-                        {{ __('+ Pacientes') }}
-                    </x-nav-link>
-                    @endif
-                    @if(Auth::user()->hasPermissionTo('visualizar_tela_medico'))  
-                    <x-nav-link href="{{ route('cadastro-prontuario') }}" :active="request()->routeIs('cadastro-prontuario')">
-                        {{ __('+ Prontuario') }}
-                    </x-nav-link>
-                    @endif
                     <x-nav-link href="{{ route('novoendereco') }}" :active="request()->routeIs('novoendereco')">
                         {{ __('Novo Endereço') }}
                     </x-nav-link>
+                    @if(Auth::user())
+                        @if(Auth::user()->hasPermissionTo('visualizar_tela_secretaria'))  
+                        <x-nav-link href="{{ route('cadastro-funcionario') }}" :active="request()->routeIs('cadastro-funcionario')">
+                            {{ __('+ Funcionarios') }}
+                        </x-nav-link>
+                        @endif
+                        @if(Auth::user()->hasPermissionTo('visualizar_tela_secretaria')||Auth::user()->hasPermissionTo('visualizar_tela_medico'))  
+                        <x-nav-link href="{{ route('cadastro-paciente') }}" :active="request()->routeIs('cadastro-paciente')">
+                            {{ __('+ Pacientes') }}
+                        </x-nav-link>
+                        @endif
+                        @if(Auth::user()->hasPermissionTo('visualizar_tela_medico'))  
+                        <x-nav-link href="{{ route('cadastro-prontuario') }}" :active="request()->routeIs('cadastro-prontuario')">
+                            {{ __('+ Prontuario') }}
+                        </x-nav-link>
+                        @endif
+                    @endif
+                    
                 </div>
             </div>
 
@@ -116,7 +120,7 @@
                                                 </svg>
                                             </button>
                                         @else
-                                            <a href="{{ route('welcome') }}"><x-secondary-button>Login</x-secondary-button></a>
+                                            <a href="{{ route('login') }}"><x-secondary-button>Login</x-secondary-button></a>
                                         @endif
                                     </span>
                             @endif
@@ -176,8 +180,8 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+            <x-responsive-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
+                {{ __('Home') }}
             </x-responsive-nav-link>
         </div>
     </div>

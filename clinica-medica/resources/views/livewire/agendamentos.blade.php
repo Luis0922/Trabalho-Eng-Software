@@ -4,7 +4,13 @@
     </div>
     <x-card class="mb-4">
         <form method="POST" action="">
+            
             <div>
+                <x-label for="email" value="{{ __('Email') }}" />
+                <x-input id="email" class="block mt-1 w-full" type="text" name="email" required />
+            </div>
+
+            <div class="mt-4">
                 <x-label for="especialidade" value="{{ __('Especialidade Médica') }}" />
                 <x-select id="especialidade" class="block mt-1 w-full" type="text" name="especialidade" required />
             </div>

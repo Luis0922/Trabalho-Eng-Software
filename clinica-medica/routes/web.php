@@ -30,26 +30,22 @@ Route::get('/galeria', function () {
     return view('galeria');
 })->name('galeria');
 
+Route::get('/agendamentos', function () {
+    return view('agendamentos');
+})->name('agendamentos');
+
+Route::prefix('novoendereco')->group(function () {
+    Route::get('/', [NovoEnderecoController::class, 'index'])->name('novoendereco');
+});
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/welcome', function () {
-        return view('welcome');
-    })->name('welcome');
+    
 
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-
-    Route::get('/agendamentos', function () {
-        return view('agendamentos');
-    })->name('agendamentos');
-
-    Route::prefix('novoendereco')->group(function () {
-        Route::get('/', [NovoEnderecoController::class, 'index'])->name('novoendereco');
-    });
+    
     Route::prefix('cadastro-funcionario')->group(function () {
         Route::get('/', [CadastrarFuncionarioController::class, 'index'])->name('cadastro-funcionario');
     });
