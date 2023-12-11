@@ -66,6 +66,8 @@ Route::middleware([
 
     Route::prefix('permissoes')->group(function () {
         Route::get('/', [PermissionsController::class, 'index'])->name('permissoes.');
+        Route::get('/atualizar_funcao', [PermissionsController::class, 'atualizar_funcao'])
+            ->name('permissoes.atualizar_funcao');
         Route::get('/editar_permissoes/{user_id}', [PermissionsController::class, 'editar_permissoes'])
             ->name('permissoes.editar_permissoes');
     });

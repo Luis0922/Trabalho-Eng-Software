@@ -31,9 +31,33 @@ class TelaPermissoes extends Component
 
     public function mount()
     {
-        $this->find_user();
-        if(Auth::user()->hasPermissionTo('adicionar_permissao_usuario')){
-            $this->fetch_permissions();
+        if($this->action == 'permissions'){
+            $this->find_user();
+            if(Auth::user()->hasPermissionTo('adicionar_permissao_usuario')){
+                $this->fetch_permissions();
+            }
+        }
+        if($this->action == 'funcao'){
+            $this->roles_colunas = [];
+            $roles = Role::pluck('name')->toArray();
+            foreach($roles as $role){
+                array_push($this->roles_colunas, ['nome' => $role]);
+            }
+        }
+    }
+
+    public function fetch_permissions_funcao()
+    {
+        $this->permissions_colunas = [];
+        # Todas as permissoes do sistema
+        $permissions = Permission::pluck('name')->toArray();
+        $role = Role::findByName($this->selectedFuncao, 'web');
+        foreach($permissions as $permission){
+            $ativo = '';
+            if($role->hasPermissionTo($permission)){
+                $ativo = 'checked';
+            }
+            array_push($this->permissions_colunas, ['nome' => $permission, 'ativo' => $ativo]);
         }
     }
 
@@ -43,15 +67,6 @@ class TelaPermissoes extends Component
         $this->action = 'roles';
         if(Auth::user()->hasPermissionTo('adicionar_funcao_usuario')){
             $this->fetch_roles();
-        }
-    }
-
-    public function tela_permissao()
-    {
-        $this->find_user();
-        $this->action = 'permissions';
-        if(Auth::user()->hasPermissionTo('adicionar_permissao_usuario')){
-            $this->fetch_permissions();
         }
     }
 
@@ -110,7 +125,7 @@ class TelaPermissoes extends Component
         if(Auth::user()->hasPermissionTo('atualizar_funcao')){
             $this->selectedFuncao = $funcao;
             $this->action = 'atualizar_funcao';
-            $this->fetch_permissions();
+            $this->fetch_permissions_funcao();
         }
     }
 
