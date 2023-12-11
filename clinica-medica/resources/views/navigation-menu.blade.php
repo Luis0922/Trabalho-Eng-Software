@@ -19,18 +19,25 @@
                     <x-nav-link href="{{ route('galeria') }}" :active="request()->routeIs('galeria')">
                         {{ __('Galeria') }}
                     </x-nav-link>
+                    
                     <x-nav-link href="{{ route('agendamentos') }}" :active="request()->routeIs('agendamentos')">
                         {{ __('Agendamentos') }}
                     </x-nav-link>
+                    @if(Auth::user()->hasPermissionTo('visualizar_tela_secretaria'))  
                     <x-nav-link href="{{ route('cadastro-funcionario') }}" :active="request()->routeIs('cadastro-funcionario')">
                         {{ __('+ Funcionarios') }}
                     </x-nav-link>
+                    @endif
+                    @if(Auth::user()->hasPermissionTo('visualizar_tela_secretaria')||Auth::user()->hasPermissionTo('visualizar_tela_medico'))  
                     <x-nav-link href="{{ route('cadastro-paciente') }}" :active="request()->routeIs('cadastro-paciente')">
                         {{ __('+ Pacientes') }}
                     </x-nav-link>
+                    @endif
+                    @if(Auth::user()->hasPermissionTo('visualizar_tela_medico'))  
                     <x-nav-link href="{{ route('cadastro-prontuario') }}" :active="request()->routeIs('cadastro-prontuario')">
                         {{ __('+ Prontuario') }}
                     </x-nav-link>
+                    @endif
                     <x-nav-link href="{{ route('novoendereco') }}" :active="request()->routeIs('novoendereco')">
                         {{ __('Novo Endereço') }}
                     </x-nav-link>

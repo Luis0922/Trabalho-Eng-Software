@@ -22,6 +22,10 @@ class InsertPermissions extends Seeder
         Permission::create(['name' => 'atualizar_funcao_usuario']);
         Permission::create(['name' => 'adicionar_permissao_usuario']);
         Permission::create(['name' => 'atualizar_permissao_usuario']);
+        Permission::create(['name' => 'visualizar_tela_medico']);
+        Permission::create(['name' => 'visualizar_tela_secretaria']);
+
+
 
         Role::create(['name' => 'medico']);
         Role::create(['name' => 'admin']);
