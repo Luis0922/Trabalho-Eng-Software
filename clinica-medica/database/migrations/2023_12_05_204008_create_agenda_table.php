@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->date('data');
             $table->string('horario');
-            $table->unsignedBigInteger('paciente');
-            $table->foreign('paciente')->references('codigo')->on('paciente');
+            $table->string('nome');
+            $table->string('email');
             $table->unsignedBigInteger('medico');
             $table->foreign('medico')->references('codigo')->on('medico');
             $table->timestamps();

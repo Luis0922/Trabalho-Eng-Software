@@ -12,10 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('medico', function (Blueprint $table) {
-            $table->id();
             $table->string('Especialidade');
             $table->string('CRM');
-            $table->unsignedBigInteger('codigo');
+            $table->unsignedBigInteger('codigo')->primary();
             $table->foreign('codigo')->references('codigo')->on('funcionario');
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
