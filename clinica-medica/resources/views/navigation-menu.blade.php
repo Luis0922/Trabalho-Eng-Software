@@ -68,6 +68,12 @@
                         {{ __('+ Prontuario') }}
                     </x-nav-link>
                     @endif
+                    @if(Auth::user()->hasPermissionTo('visualizar_listagens'))
+                    <x-nav-link href="{{ route('visualizar-listagens') }}"
+                        :active="request()->routeIs('visualizar-listagens')">
+                        {{ __('Visualizar Listagens') }}
+                    </x-nav-link>
+                    @endif
                     @endif
 
                 </div>
