@@ -33,9 +33,10 @@ Route::get('/galeria', function () {
 Route::get('/agendamentos', function () {
     return view('agendamentos');
 })->name('agendamentos');
-Route::get('/funcionario_cadastrado', function () {
-    return view('funcionario_cadastrado');
-})->name('funcionario_cadastrado');
+
+Route::get('/visualizar-funcionarios', function () {
+    return view('visualizar-funcionarios');
+})->name('visualizar-funcionarios');
 
 Route::prefix('novoendereco')->group(function () {
     Route::get('/', [NovoEnderecoController::class, 'index'])->name('novoendereco');
