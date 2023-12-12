@@ -12,11 +12,12 @@ class CadastroFuncionario extends Component
 {
     public $nome, $email, $tel, $cep, $logradouro, $bairro, $cidade, $estado, $data_inicio, $salario, $senha;
     public $menssagemErro = "";
+    public $imprimir_medico = 0;
+    public $tipo = 'secretaria';
     protected $listeners = ['cadastrar'];
 
     public function cadastrar()
     {
-
         $tratarErros = $this->Verifica();
 
         if($tratarErros == 0){
@@ -115,6 +116,14 @@ class CadastroFuncionario extends Component
     public function render()
     {
         return view('livewire.cadastro-funcionario');
+    }
+
+    public function designarTipoFuncionario(){
+        if ($this->tipo=='medico')
+            $this->imprimir_medico = 1;
+        else
+            $this->imprimir_medico = 0;
+
     }
 
 }
