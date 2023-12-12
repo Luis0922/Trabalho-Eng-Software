@@ -1,0 +1,8 @@
+1. Tela de Listagens - um select e uma tabela que faz um select from a tabela selecionada 
+2. Cadastro de funcionario: diferenciacao de medico e secretaria (aparecer os campos dinamicamente)
+3. Tela de Agendamentos de Consultas - fazer o backend da Tela e verificar as tabelas
+4. Barras de navegação
+4.1 Paciente ✅
+4.2 Secretaria - falta a listagem e tira o cadastro de prontuarios
+4.3 Medico - cadastro de pacientes e funcionarios + listagem das consultas do proprio medico
+

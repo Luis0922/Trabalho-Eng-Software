@@ -173,3 +173,7 @@ footer {
     border-style: none;
 
 }
+
+th {
+    background-color: white;
+}
