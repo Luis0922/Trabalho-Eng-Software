@@ -33,8 +33,23 @@ class InsertPermissions extends Seeder
 
 
 
-        Role::create(['name' => 'medico']);
-        Role::create(['name' => 'secretaria']);
+        $role = Role::create(['name' => 'medico']);
+        $role->givePermissionTo('visualizar_home');
+        $role->givePermissionTo('visualizar_galeria');
+        $role->givePermissionTo('realizar_agendamento');
+        $role->givePermissionTo('cadastrar_paciente');
+        $role->givePermissionTo('cadastrar_prontuario');
+        $role->givePermissionTo('visualizar_listagens');
+
+        $role = Role::create(['name' => 'secretaria']);
+        $role->givePermissionTo('visualizar_home');
+        $role->givePermissionTo('cadastro_funcionario');
+        $role->givePermissionTo('visualizar_galeria');
+        $role->givePermissionTo('realizar_agendamento');
+        $role->givePermissionTo('cadastrar_endereco');
+        $role->givePermissionTo('cadastrar_paciente');
+        $role->givePermissionTo('visualizar_listagens');
+
         Role::create(['name' => 'admin']);
         $user = User::find(1);
         $user->assignRole('admin');
