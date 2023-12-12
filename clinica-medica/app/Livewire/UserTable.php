@@ -23,9 +23,8 @@ final class UserTable extends PowerGridComponent
     public function setUp(): array
     {
         return [
-            Header::make()->showSearchInput(),
+            Header::make(),
             Footer::make()
-                ->showPerPage()
                 ->showRecordCount(),
         ];
     }
