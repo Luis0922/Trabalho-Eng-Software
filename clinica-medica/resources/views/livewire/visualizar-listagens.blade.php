@@ -9,6 +9,9 @@
                     <option value="">Selecione...</option>
                     <option value="funcionario">Funcionário</option>
                     <option value="paciente">Paciente</option>
+                    <option value="enderecos">Endereços</option>
+                    <option value="agendamentos">Agendamentos</option>
+
                 </select>
             </div>
             @if($tabela=='funcionario')
@@ -16,6 +19,12 @@
             @endif
             @if($tabela=='paciente')
                 <livewire:paciente-table/>
+            @endif
+            @if($tabela=='enderecos')
+                <livewire:enderecos-table/>
+            @endif
+            @if($tabela=='agendamentos')
+                <livewire:agendamentos-table/>
             @endif
             </div>
 </div>
