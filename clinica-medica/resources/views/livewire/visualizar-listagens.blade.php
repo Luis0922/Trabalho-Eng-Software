@@ -10,7 +10,15 @@
                     <option value="funcionario">Funcionário</option>
                     <option value="paciente">Paciente</option>
                     <option value="enderecos">Endereços</option>
-                    <option value="agendamentos">Agendamentos</option>
+                    @if(Auth::user())
+                        @if(Auth::user()->hasPermissionTo('visualizar_meus_agendamentos'))
+                            @if(Auth::user()->hasPermissionTo('visualizar_agendamentos'))
+                                <option value="agendamentos">Agendamentos</option>
+                            @else
+                                <option value="meus-agendamentos">Meus Agendamentos</option>
+                            @endif
+                        @endif
+                    @endif
 
                 </select>
             </div>
@@ -25,6 +33,9 @@
             @endif
             @if($tabela=='agendamentos')
                 <livewire:agendamentos-table/>
+            @endif
+            @if($tabela=='meus-agendamentos')
+                <livewire:agendamento-medico-table/>
             @endif
             </div>
 </div>

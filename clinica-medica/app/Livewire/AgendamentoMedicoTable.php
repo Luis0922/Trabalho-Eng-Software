@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Agenda;
+use Auth;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use PowerComponents\LivewirePowerGrid\Button;
@@ -16,36 +17,39 @@ use PowerComponents\LivewirePowerGrid\PowerGridColumns;
 use PowerComponents\LivewirePowerGrid\PowerGridComponent;
 use PowerComponents\LivewirePowerGrid\Traits\WithExport;
 
-final class AgendamentosTable extends PowerGridComponent
+final class AgendamentoMedicoTable extends PowerGridComponent
 {
     use WithExport;
 
     public function setUp(): array
     {
+
+
         return [
             Footer::make()
-                ->showPerPage(),
+                ->showRecordCount()
         ];
+      
     }
 
     public function datasource(): Builder
-    {
+    {   
         return Agenda::query()
-         ->join('Users as UsersPaciente', function ($Users) { 
-             $Users->on('Agenda.email', '=', 'UsersPaciente.email');
-         }) -> join('Medico', function ($Medico) {
-            $Medico->on('Agenda.medico','=','Medico.codigo');
-         }) -> join('Users as UsersMedico', function ($Users) {
-            $Users->on('Medico.codigo','=','UsersMedico.id');
-         })
-         ->select([ 
-            'Agenda.id as id',
-            'UsersPaciente.name as paciente',
-            'Agenda.data as data',
-            'Agenda.horario as horario', 
-            'Medico.especialidade',
-            'UsersMedico.name as medico',
-         ]);
+        ->join('Users as UsersPaciente', function ($Users) { 
+            $Users->on('Agenda.email', '=', 'UsersPaciente.email');
+        }) -> join('Medico', function ($Medico) {
+           $Medico->on('Agenda.medico','=','Medico.codigo');
+        }) -> join('Users as UsersMedico', function ($Users) {
+           $Users->on('Medico.codigo','=','UsersMedico.id');
+        })
+        ->select([ 
+           'Agenda.id as id',
+           'UsersPaciente.name as paciente',
+           'Agenda.data as data',
+           'Agenda.horario as horario', 
+           'Medico.especialidade',
+        ])
+        -> where ('UsersMedico.email', '=', Auth::user()->email);
     }
 
     public function relationSearch(): array
@@ -58,10 +62,9 @@ final class AgendamentosTable extends PowerGridComponent
         return PowerGrid::columns()
             ->addColumn('data')
             ->addColumn('paciente')
-            ->addColumn('medico')
             ->addColumn('especialidade')
-            ->addColumn('horario')
-            ;
+            ->addColumn('horario');
+
     }
 
     public function columns(): array
@@ -69,10 +72,10 @@ final class AgendamentosTable extends PowerGridComponent
         return [
             Column::make('Data', 'data'),
             Column::make('Paciente', 'paciente'),
-            Column::make('Medico', 'medico'),
             Column::make('Especialidade', 'especialidade'),
             Column::make('Horario', 'horario')
                 ->sortable(),
+
         ];
     }
 
@@ -89,6 +92,7 @@ final class AgendamentosTable extends PowerGridComponent
         $this->js('alert('.$rowId.')');
     }
 
+   
 
     /*
     public function actionRules($row): array

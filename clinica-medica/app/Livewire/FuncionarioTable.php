@@ -37,7 +37,6 @@ final class FuncionarioTable extends PowerGridComponent
             $Users->on('Funcionario.codigo', '=', 'Users.id');
         })
         ->select([
-            'Funcionario.id',
             'Funcionario.salario',
             'Funcionario.data_contrato',
             'Users.name',
@@ -56,7 +55,6 @@ final class FuncionarioTable extends PowerGridComponent
     public function addColumns(): PowerGridColumns
     {
         return PowerGrid::columns()
-            ->addColumn('id')
             ->addColumn('salario')
             ->addColumn('data_contrato')
             ->addColumn('email')
@@ -69,7 +67,6 @@ final class FuncionarioTable extends PowerGridComponent
     public function columns(): array
     {
         return [
-            Column::make('Id', 'id'),
             Column::make('Nome', 'name'),
             Column::make('Email', 'email'),
             Column::make('Salario', 'salario'),

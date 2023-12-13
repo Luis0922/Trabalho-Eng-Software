@@ -29,6 +29,8 @@ class InsertPermissions extends Seeder
         Permission::create(['name' => 'cadastrar_paciente']);
         Permission::create(['name' => 'cadastrar_prontuario']);
         Permission::create(['name' => 'visualizar_listagens']);
+        Permission::create(['name' => 'visualizar_meus_agendamentos']);
+        Permission::create(['name' => 'visualizar_agendamentos']);
 
 
 
@@ -40,6 +42,7 @@ class InsertPermissions extends Seeder
         $role->givePermissionTo('cadastrar_paciente');
         $role->givePermissionTo('cadastrar_prontuario');
         $role->givePermissionTo('visualizar_listagens');
+        $role->givePermissionTo('visualizar_meus_agendamentos');
 
         $role = Role::create(['name' => 'secretaria']);
         $role->givePermissionTo('visualizar_home');
@@ -49,6 +52,7 @@ class InsertPermissions extends Seeder
         $role->givePermissionTo('cadastrar_endereco');
         $role->givePermissionTo('cadastrar_paciente');
         $role->givePermissionTo('visualizar_listagens');
+        $role->givePermissionTo('visualizar_agendamentos');
 
         Role::create(['name' => 'admin']);
         $user = User::find(1);
