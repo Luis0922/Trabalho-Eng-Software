@@ -12,7 +12,7 @@ use Carbon\Carbon;
 class Agendamentos extends Component
 {
 
-    public $email, $especialidadeAtual, $nomeMedico, $dataEscolhida, $horarioEscolhido;
+    public $email, $especialidadeAtual, $nomeMedico, $dataEscolhida, $horarioEscolhido, $codMed;
     public $especialidadeMedica = [];
     public $medicosNaArea = [];
     public $horarios = ['8:00','9:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00'];
@@ -30,17 +30,33 @@ class Agendamentos extends Component
 
     public function dataDefinida()
     {
-        $cod = Medico::join('funcionario','medico.codigo', '=', 'funcionario.codigo')->
+        $this->codMed = Medico::join('funcionario','medico.codigo', '=', 'funcionario.codigo')->
         join('users', 'funcionario.codigo', '=', 'users.id')->
         where('users.name', $this->nomeMedico)->value('medico.codigo');
-        $this->horariosOcupados = Agenda::where('medico', $cod)->where('data',$this->dataEscolhida)
+        $this->horariosOcupados = Agenda::where('medico', $this->codMed)->where('data',$this->dataEscolhida)
                                         ->pluck('horario')->toArray();
-        $this->horariosPossiveis = array_diff($this->horarios, $this->horariosOcupados);
+        $temp = array_diff($this->horarios, $this->horariosOcupados);
+        $this->horariosPossiveis = [];
+        $i = 0;
+        foreach($temp as $elemento)
+        {
+            $this->horariosPossiveis[$i] = $elemento;
+            $i++;
+        }
+        $this->horarioEscolhido = $this->horariosPossiveis[0];
     }
 
-    public function agenda()
+    public function cadastra()
     {
-        dd($this->horarioEscolhido);
+        $nome = User::where('email', $this->email)->value('name');
+        $dados = ([
+            'data' => $this->dataEscolhida,
+            'horario' => $this->horarioEscolhido,
+            'nome' => $nome,
+            'email' => $this->email,
+            'medico' => $this->codMed
+        ]);
+        Agenda::insert($dados);
     }
     
     public function especialidadeSelecionada()

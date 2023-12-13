@@ -30,9 +30,13 @@ Route::get('/galeria', function () {
     return view('galeria');
 })->name('galeria');
 
-Route::get('/agendamentos', function () {
-    return view('agendamentos');
-})->name('agendamentos');
+//Route::get('/agendamentos', function () {
+//    return view('agendamentos');
+//})->name('agendamentos');
+
+Route::prefix('agendamentos')->group(function () {
+    Route::get('/', [AgendamentosController::class, 'index'])->name('agendamentos');
+});
 
 Route::get('/visualizar-listagens', function () {
     return view('visualizar-listagens');

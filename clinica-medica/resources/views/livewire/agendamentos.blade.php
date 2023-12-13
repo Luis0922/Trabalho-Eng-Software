@@ -3,11 +3,11 @@
         <h1 class="text-white font-bold text-3xl flex self-center text-center">Agendamento de Consultas</h1>
     </div>
     <x-card class="mb-4">
-        <form method="POST" action="">
-            
+        <form action="{{ route('login') }}">
+            @csrf
             <div>
                 <x-label for="email" value="{{ __('Email') }}" />
-                <x-input id="email" class="block mt-1 w-full" type="text" name="email" required />
+                <x-input id="email" wire:model="email" class="block mt-1 w-full" type="text" name="email" required />
             </div>
 
             <div>
@@ -42,13 +42,12 @@
                 </select>
             </div>
             <div class="mt-4">
-                <x-button wire:click="agenda()">
-                    {{ __('Agendar') }}
+                <x-button wire:click="cadastra()">
+                    {{ __('Cadastrar') }}
                 </x-button>
             </div>
-</div>
-</form>
-</x-card>
+        <form>
+    </x-card>
 </div>
 
 
