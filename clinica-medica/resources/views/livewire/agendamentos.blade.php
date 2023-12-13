@@ -3,7 +3,7 @@
         <h1 class="text-white font-bold text-3xl flex self-center text-center">Agendamento de Consultas</h1>
     </div>
     <x-card class="mb-4">
-        <form action="{{ route('login') }}">
+        <form action="{{ route('home') }}">
             @csrf
             <div>
                 <x-label for="email" value="{{ __('Email') }}" />

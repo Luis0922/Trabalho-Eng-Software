@@ -17,6 +17,8 @@
                             @else
                                 <option value="meus-agendamentos">Meus Agendamentos</option>
                             @endif
+                        @else
+                        <option value="agendamentos">Agendamentos</option>
                         @endif
                     @endif
 
