@@ -11,8 +11,8 @@ use Carbon\Carbon;
 class CadastroPaciente extends Component
 {
 
-    public $nome, $email, $senha, $telefone, $cep, $logradouro, $bairro, $cidade, $estado, $peso, $altura, $tipoSanguineo;
-
+    public $nome, $email, $telefone, $cep, $logradouro, $bairro, $cidade, $estado, $peso, $altura, $tipoSanguineo;
+    public $senha = 'da156dads16sd15ad';
     public $menssagemErro = "";
     protected $listeners = ['cadastrar'];
 

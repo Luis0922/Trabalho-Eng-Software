@@ -4,7 +4,7 @@
     </div>
     <x-card class="mb-4">
         <form method="POST" action="{{ route('login') }}">
-            @csrf  
+            @csrf
             <div>
                 <x-label for="nome" value="{{ __('Nome') }}" />
                 <x-input id="nome" wire:model="nome" class="block mt-1 w-full" type="text" name="nome" required />
@@ -13,10 +13,6 @@
             <div class="mt-4">
                 <x-label for="email" value="{{ __('Email') }}" />
                 <x-input id="email" wire:model="email" class="block mt-1 w-full" type="email" name="email" required />
-            </div>
-            <div class="mt-4">
-                <x-label for="senha" value="{{ __('Senha') }}" />
-                <x-input id="senha" wire:model="senha" class="block mt-1 w-full" type="password" name="senha" required />
             </div>
             <div class="mt-4">
                 <x-label for="telefone" value="{{ __('Telefone') }}" />
