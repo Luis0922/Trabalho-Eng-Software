@@ -32,6 +32,26 @@ class CadastroProntuario extends Component
 
     public function cadastro()
     {
+        $tratarErros = $this->Verifica();
+
+        if($tratarErros == 0){
+
+            $foi = $this->cadastraProntuario();
+
+            if($foi){
+                $this->menssagemErro = "";
+            }else{
+                $this->menssagemErro = "Não foi possível cadastrar o funcionário"; 
+            }
+
+        }else if($tratarErros == -2){
+           // $this->menssagemErro = "Campos obrigatórios estão vazios";
+           dd("campos obrigatorios nulos");
+        }
+    }
+
+    public function cadastraProntuario()
+    {
         $dados = ([
             'codigo' => $this->selected_user,
             'anamnese' => $this->anamnese,
@@ -42,5 +62,18 @@ class CadastroProntuario extends Component
             'updated_at' => Carbon::now()
         ]);
         return Prontuario::insert($dados);
+    }
+
+    public function verifica()
+    {
+        
+        if($this->anamnese == NULL || $this->medicamentos == NULL || $this->atestados == NULL || 
+           $this->exames == NULL || $this->selected_user == NULL)
+        {
+            return -2;
+        }
+        
+        return 0;
+
     }
 }
