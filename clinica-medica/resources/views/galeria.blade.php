@@ -8,9 +8,9 @@
         <p class="font-bold">Nossa Infraestrutura</h1>
         <img src="../images/img1-galeria.png" alt="">
         <p>Imagem 1</p>
-        <img src="../images/img1-galeria.png" alt="">
+        <img src="../images/img2-galeria.jpg" alt="">
         <p>Imagem 2</p>
-        <img src="../images/img1-galeria.png" alt="">
+        <img src="../images/img3-galeria.jpg" alt="">
         <p>Imagem 3</p>
     </section>
     
