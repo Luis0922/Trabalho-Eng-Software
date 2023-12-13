@@ -74,6 +74,9 @@ class CadastroFuncionario extends Component
             'salario' => $this->salario
         ]);
 
+        $user = User::find($idUsuario);
+        $user->assignRole('secretaria');
+
         return Funcionario::insert($dadosFuncionario);
     }
 
@@ -84,6 +87,10 @@ class CadastroFuncionario extends Component
             'especialidade' => $this->especialidade,
             'crm' => $this->crm
         ]);
+
+        $user = User::find($idUsuario);
+        $user->assignRole('medico');
+        $user->removeRole('secretaria');
 
         return Medico::insert($dadosMedico);
     }
